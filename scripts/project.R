@@ -7,6 +7,7 @@ library(leaflet)
 library(tibbletime)
 library(ggthemes)
 library(scales)
+library(ggplot2)
 
 httpgd::hgd()
 httpgd::hgd_browse()
@@ -22,4 +23,17 @@ dat20 <- dat %>% filter(Date >= ("2020-01-01"))
 glimpse(dat20)
 
 dat20 %>% ggplot(aes(x = Date, fill = Christmas)) +
-    geom_bar(stat = "count", position = "fill")
+    geom_bar(stat = "count", position = "fill") +
+    geom_text(aes(label=paste0(sprintf("%1.1f", percent*100), "%")),
+    position=position_fill(vjust=0.5), colour="white")
+
+dat20g <- dat20 %>% group_by(Date, Christmas) %>%
+    tally() %>%
+    mutate(percent = n / sum(n))
+
+glimpse(dat20g)
+
+dat20g %>% ggplot(aes(x = Date, y = n, fill = Christmas)) +
+    geom_bar(stat = "identity", position = "fill") +
+    geom_text(aes(label = paste0(sprintf("%1.1f", percent * 100), "%")),
+    position = position_fill(vjust = 0.5), colour = "white", size = 1)
