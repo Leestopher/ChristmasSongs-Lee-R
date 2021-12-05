@@ -23,11 +23,6 @@ dat20 <- dat %>% filter(Date >= ("2020-01-01")) %>%
 
 glimpse(dat20)
 
-dat20 %>% ggplot(aes(x = Date, fill = Christmas)) +
-    geom_bar(stat = "count", position = "fill") +
-    geom_text(aes(label=paste0(sprintf("%1.1f", percent*100), "%")),
-    position=position_fill(vjust=0.5), colour="white")
-
 dat20g <- dat20 %>% group_by(Date, Christmas) %>%
     tally() %>%
     mutate(percent = n / sum(n))
@@ -60,4 +55,28 @@ dat20 %>%
     filter(Christmas == 'Y', Rank == 1) %>%
     count(Song.Title, Singer, sort = TRUE)
 
+dat20 %>% group_by(Singer) %>%
+    summarise(appearances = n(),
+        num1_appearances = sum(Rank ==1),
+        distinctsongson100 = n_distinct(Song.Title)) %>%
+    arrange(desc(num1_appearances))
+
+dat20 %>% group_by(Singer) %>%
+    summarise(Christmas = Christmas,
+    appearances = n()
+    ) %>%
+    distinct()
+
 #Test
+
+dat20 %>% group_by(Singer) %>%
+    count(Song.Title, Singer, sort = TRUE) %>%
+    distinct()
+
+dat20 %>% group_by(Singer) %>%
+    summarise(appearances = n(),
+        num1_appearances = sum(Rank ==1),
+        distinctsongson100 = n_distinct(Song.Title),
+        Christmasartist = Christmas) %>%
+        distinct() %>%
+    arrange(desc(appearances))
