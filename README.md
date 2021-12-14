@@ -1,56 +1,32 @@
-# Personal data projects
+## Project Purpose
 
-Use this template repo for your personal data projects. Would you please use the following format for your repository? Please name your repository in your personal space using the following naming structure `[title]-[lastname]-[languagesused]`.  You will then complete a pull request to move your personal data projects into our organization.
+This was the first data set from Kaggle, TidyTuesday, Workout Wednesday, etc. that I thought would be interesting for a project!  Spotify, Christmas, Tableau, what more could we ask from a weekly challenge?
 
-- __Project Purpose:__ Take one to two paragraphs to explain your goals.  Why did you use this data? What skills are you going to demonstrate? Did you do this work for a client? 
-- __Tools used:__ Provide an overview of the programming languages and packages you leveraged for this work.  You could provide links to the pertinent reading material that you leveraged to complete the job. Provide links to your final scripts stored in your repository.
-- __Results:__ This is your conclusion.  Explain why your work matters.  How could others use it?  What are your next steps? Show some key findings.
+For quick [context](http://www.workout-wednesday.com/2020w52/), this data set provides the top 200 streamed songs from Halloween to the New Year.  I decided to focus just on 2019, instead of the two years provided.
 
-## Folder structure
+!["TotalStreams"](documents/top10streamed.png)
 
-```
-- readme.md
-- scripts
----- readme.md (short description of each script)
----- data_munge.R
----- data_munge.py
----- eda.R
----- model.py
-- data (less than 100 Mb)
----- readme.md (links to data larger than 100 Mb and data details.)
----- crimes.csv
----- visits.json
-- documents
----- readme.md (notes while doing your project)
----- mlmethod.pdf
----- api_guide.pdf
-```
+I decided to assign a value of ChristmasArtist if the Singer had ANY top 200 songs that were Christmas related.  So although a majority of Ariana Grande and Taylor Swift streams are non-Christmas related, they still helped contribute to the Christmas joy and spirit with a couple of holiday singles.
 
-## Writing about data science
+Looking at the top 10 streamed artists, 6 of them have a Christmas song!  Mariah Carey, Wham!, and Michael Buble are majority Christmas artists, whereas Ariana Grande, Taylor Swift, and Justin Bieber are majority non-Christmas.  Still, quite an even spread between regular pop and holiday music.
 
-[Thusan's article on how writing about data science is not easy](https://towardsdatascience.com/lets-admit-it-writing-about-data-science-is-not-easy-37a376777d36) could be helpful as you document your project and skills.
+Now how many of the 200 songs are Christmas?
 
-## Data sources
+!["xmaspercenttot"](documents/xmaspercentot.png)
 
-You don't need to make these projects complicated. These projects are built to show your work using the skills you have developed during the course. I would make sure that these are presentable in your Github space. You want to demonstrate your creativity. You could use the following links to find a new data set. 
+Slowly but surely, the percentage of Christmas songs in the top 200 increases until Christmas, with a sharp decline immediately post-Christmas.  Getting to as high as over 75% of all top 200 songs being a Christmas tune is quite impressive!  There are also noticeable two-day jumps, which should fall on the weekends.  Apparently weekends are more likely to roast some chestnuts.
 
-- [FiveThirtyEight](https://github.com/fivethirtyeight/data)
-- [TidyTuesday](https://github.com/rfordatascience/tidytuesday)
-- [WorkoutWednesday](http://www.workout-wednesday.com/)
-- [Kaggle](https://www.kaggle.com/datasets)
-- [data.world](https://data.world/search?context=community&entryTypeLabel=dataset&q=free+data&type=all)
+!["topxmasrank"](documents/xmasrank.png)
 
-## Github pages
+Analysing a different way, what is the HIGHEST rank of a Christmas song every day?  Above, you can see that it follows a similar trend to the previously discussed percentage plot.  The "jump" to Number 1 is a bit quicker than the percentage increase, and the trend holds that a Christmas song is number 1 from before December 1st to after Christmas.
 
-It would help if you took the time to publish your repo for easier viewing of the files.  Please follow the directions at [Github pages](https://pages.github.com/) to build your pages footprint on the internet.
+Now, the most popular Christmas song today is Mariah Carey's _All I Want For Christmas is You_.  How exactly does this holiday song titan hold up, rankings-wise?
 
-## Questions
+!["topmariahrank"](documents/mariahrank.png)
 
-### Is the expectation of our personal projects similar to that of the class projects we are completing?
+No, this plot isn't a mistake.  Mariah Carey's biggest Christmas hit keep the top Christmas spot for the ENTIRE 60 day span, up until right after Christmas.  Looking back and forth between the plots shows just how popular _All I Want For Christmas is You_ really is.
 
-Yes & No. Here are a few points to highlight the comparison
+##Additional Conclusions
 
-1. Three different data sets is the main criteria. Hopefully different challenges to your skills and the data can be in the same area for all three if you desire.
-2. You can choose the language. Please choose based on where you want employment.
-3. We don't get much into the story telling with our class projects.  But, I would hope you tell a story that includes some graphs and analysis.
-4. Think of these as sales pitches for future employment. Your personal projects should be in your own Github space.
+Aside from the Mariah anomaly, there are a good number of Christmas songs yet to be explored.  Using other data, it might be possible to determine if there are any artists who NEVER had a top 200 hit other than a Christmas song.  A lot of fun, and about 12 days until this project is stored away until next Halloween ☺
+
