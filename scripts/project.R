@@ -37,7 +37,7 @@ dat20 %>%
     labs(title = "Highest Christmas Song Rank",
         x = "Date", y = "Rank")
 
-ggsave("documents/xmasrank.png", plot = last_plot())
+ggsave("documents/xmasrank.png", plot = last_plot(), width = 15)
 
 dat20 %>%
     group_by(Date) %>%
@@ -49,7 +49,7 @@ dat20 %>%
     labs(title = "Highest Mariah Carey Song Rank",
         x = "Date", y = "Rank")
 
-ggsave("documents/mariahrank.png", plot = last_plot())
+ggsave("documents/mariahrank.png", plot = last_plot(), width = 15)
 
 
 dat20g %>% ggplot(aes(x = Date, y = n, fill = Christmas)) +
@@ -58,7 +58,7 @@ dat20g %>% ggplot(aes(x = Date, y = n, fill = Christmas)) +
     scale_fill_manual(values = c("#d1b5b5", "#438b70")) +
     labs(title = "Percent of Christmas songs in top 200", x = "Date", y = "% of Top 200 Songs", fill = "Christmas Song")
 
-ggsave("documents/xmaspercentot.png", plot = last_plot())
+ggsave("documents/xmaspercentot.png", plot = last_plot(), width = 15)
 
 
 dat20 %>% group_by(Singer) %>%
@@ -115,6 +115,4 @@ dat20 %>% group_by(Singer) %>%
     scale_fill_manual(values = c("#811d1d", "#17503a")) +
     labs(title = "Top 10 Streamed Artists", x = "Artist", y = "Total Streams", fill = "Christmas Artist")
 
-ggsave("documents/top10streamed.png", plot = last_plot())
-
-
+ggsave("documents/top10streamed.png", plot = last_plot(), width = 15)
